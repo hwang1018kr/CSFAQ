@@ -1,28 +1,37 @@
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="author" content="">
   <title>CS FAQ</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script type="test/javascript">
+
+<body>
+index page
+
+<div id="app">
+  <p>{{ message }}</p>
+</div>
+
+<div id="app-2">
+  <span v-bind:title="message">
+    내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+  </span>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
   var app = new Vue({
-    el : "#app",
-    data : {
-      message : '안녕하세요. 개발시작합니다~!'
+    el: '#app',
+    data: {
+      message: '안녕하세요 Vue!'
+    }
+  })
+
+  var app2 = new Vue({
+    el: '#app-2',
+    data: {
+      message: '이 페이지는 ' + new Date() + ' 에 로드 되었습니다'
     }
   })
 </script>
-<body>
-index page
-gaebal sizak
-
-<div id="app">
-  {{ message }}
-</div>
-
 </body>
 </html>
