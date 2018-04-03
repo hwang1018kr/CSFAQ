@@ -1,23 +1,110 @@
+<!DOCTYPE html>
 <html>
 <head>
+  <meta name="author" content="jjhwang">
   <title>CS FAQ</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 합쳐지고 최소화된 최신 CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+  <!-- 부가적인 테마 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 </head>
 
 <body>
-index page
 
-<div id="app">
-  <p>{{ message }}</p>
+<nav class="navbar navbar-default">
+</nav>
+
+<div class"container-fluid">
+  <div class="row ">
+    <div class="col-md-2">
+      <ul class="nav nav-sidebar affix" id="left-sidebar">
+
+        <li v-for="(value, key) in object">
+          <a :href=key>
+            {{value}}
+          </a>
+        </li>
+
+        <li class="active"><a href="#">처음으로 <span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div>
+
+    <div class="col-md-8">
+      <div id="camp">
+        <h1 id="div-camp" class="page-header">캠페인</h1>
+        <div id="app">
+          <p>{{ message }}</p>
+        </div>
+      </div>
+
+      <div id="auto">
+        <h1 id="div-auto" class="page-header">자동</h1>
+        <div id="app-2">
+          <span v-bind:title="message">
+            내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+          </span>
+        </div>
+      </div>
+
+      <div id="web">
+        <h1 id="div-web" class="page-header">웹</h1>
+        <div id="app-2">
+          <span v-bind:title="message">
+            내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+          </span>
+        </div>
+      </div>
+
+      <div id="svr">
+        <h1 id="div-svr" class="page-header">서버</h1>
+        <div id="app-2">
+          <span v-bind:title="message">
+            내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+          </span>
+        </div>
+      </div>
+
+      <div id="db">
+        <h1 id="div-db" class="page-header">DB</h1>
+        <div id="app-2">
+          <span v-bind:title="message">
+            내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+          </span>
+        </div>
+      </div>
+
+      <div id="etc">
+        <h1 id="div-etc" class="page-header">기타</h1>
+        <div id="app-2">
+          <span v-bind:title="message">
+            내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <ul class="nav nav-sidebar affix" id="right-sidebar">
+
+        <li v-for="(value, key) in object">
+          <a :href=key>
+            {{value}}
+          </a>
+        </li>
+
+        <li class="active"><a href="#">처음으로 <span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<div id="app-2">
-  <span v-bind:title="message">
-    내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
-    test야123 qwe
-  </span>
-</div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/vue"></script>
 <script>
   var app = new Vue({
@@ -31,6 +118,34 @@ index page
     el: '#app-2',
     data: {
       message: '이 페이지는 ' + new Date() + ' 에 로드 되었습니다'
+    }
+  })
+
+  var leftSidebar = new Vue({
+      el : '#left-sidebar',
+      data : {
+        object : {
+          '#div-camp' : '캠페인',
+          '#div-auto' : '자동',
+          '#div-web' : '웹',
+          '#div-svr' : '서버',
+          '#div-db' : 'DB',
+          '#div-etc' : '기타'
+        }
+      }
+  })
+
+  var rightSidebar = new Vue({
+    el : '#right-sidebar',
+    data : {
+      object : {
+        '#div-1' : 'sample1',
+        '#div-2' : 'sample2',
+        '#div-3' : 'sample3',
+        '#div-4' : 'sample4',
+        '#div-5' : 'sample5',
+        '#div-6' : 'sample6'
+      }
     }
   })
 </script>
